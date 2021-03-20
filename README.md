@@ -35,4 +35,4 @@ at com.example.runners.GraphWalkerProblemRunner.main(GraphWalkerProblemRunner.ja
 ```
 
 The goal of the code in GraphWalkerProblemRunner in this case is to get to the SecondView model as directly as possible
-(without entering FirstViewSubNode) and then execute SecondView for ten seconds.
+(without the possibility of entering FirstViewSubNode) and then execute SecondView for ten seconds.
