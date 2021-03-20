@@ -2,6 +2,14 @@
 A minimal working/problematic example to demonstrate an issue with GraphWalker involving programmatically setting a
 path generator and a stop condition in conjunction with a multi-model .json GraphWalker file.
 
+## How to execute
+For example in IntelliJ IDEA.
+1. Clone the project.
+2. Execute `mvn graphwalker:generate-sources`
+3. Mark the target/generated-sources/graphwalker directory as a "Sources Root" if it isn't already.
+4. Run src/main/java/com/example/runners/GraphWalkerProblemRunner.java.
+
+## Information
 The goal is to:
 1. Model the System Under Test (SUT) as a single GraphWalker .json file containing multiple models.
 2. Run tests on different parts of the SUT by applying different path generators and stop conditions on models. There
