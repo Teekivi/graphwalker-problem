@@ -1,6 +1,10 @@
 # graphwalker-problem
-A minimal working/problematic example to demonstrate an issue with GraphWalker involving programmatically setting a
-path generator and a stop condition in conjunction with a multi-model .json GraphWalker file.
+New problem: I am unable to set a global (model) attribute in one model implementation class so that I would be able
+to get its value in another class.
+
+Description with previous problem:
+> A minimal working/problematic example to demonstrate an issue with GraphWalker involving programmatically setting a
+> path generator and a stop condition in conjunction with a multi-model .json GraphWalker file.
 
 ## How to execute
 For example in IntelliJ IDEA.
@@ -10,6 +14,8 @@ For example in IntelliJ IDEA.
 4. Run src/main/java/com/example/runners/GraphWalkerProblemRunner.java.
 
 ## Information
+_The described goal has been achieved._
+
 The goal is to:
 1. Model the System Under Test (SUT) as a single GraphWalker .json file containing multiple models.
 2. Run tests on different parts of the SUT by applying different path generators and stop conditions on models. There

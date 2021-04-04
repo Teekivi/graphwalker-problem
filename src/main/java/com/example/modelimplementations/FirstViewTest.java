@@ -1,5 +1,6 @@
 package com.example.modelimplementations;
 
+import org.graalvm.polyglot.Value;
 import org.graphwalker.core.machine.ExecutionContext;
 
 import com.example.FirstView;
@@ -28,5 +29,8 @@ public class FirstViewTest extends ExecutionContext implements FirstView {
 
     @Override
     public void e_EnterSecondView() {
+        System.out.println("FirstViewTest: Setting global.testAttribute");
+        setAttribute("global.testAttribute", Value.asValue("Test_value"));
+        System.out.println("FirstViewTest: global.testAttribute = " + getAttribute("global.testAttribute"));
     }
 }
