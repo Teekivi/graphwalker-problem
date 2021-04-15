@@ -1,6 +1,32 @@
 # graphwalker-problem
-A minimal working/problematic example to demonstrate an issue with GraphWalker involving programmatically setting a
-path generator and a stop condition in conjunction with a multi-model .json GraphWalker file.
+The problem demonstrated in the `replay-machine` Git branch:<br/>
+Trying to run a ReplayMachine with two contexts/models succeeds to traverse the first model, but upon entering the
+second model, an error occurs. Relevant output from GraphWalkerProblemRunner:
+
+```
+Context path generators from ReplayMachine:
+com.example.modelimplementations.SecondViewTest@5113ab26: null
+com.example.modelimplementations.FirstViewTest@2a64e2d0: null
+12:12:45.913 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_FirstView' in model: 'FirstView'
+12:12:45.913 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'e_EnterSecondView' in model: 'FirstView'
+12:12:45.914 [main] DEBUG org.graphwalker.core.machine.ExecutionContext - Execute method: 'v_SecondView' in model: 'FirstView'
+12:12:45.914 [main] ERROR org.graphwalker.core.machine.SimpleMachine - No path generator is defined
+Exception in thread "main" org.graphwalker.core.machine.MachineException: org.graphwalker.core.machine.MachineException: No path generator is defined
+at org.graphwalker.core.machine.SimpleMachine.walk(SimpleMachine.java:150)
+at org.graphwalker.core.machine.SimpleMachine.getNextStep(SimpleMachine.java:105)
+at com.example.runners.GraphWalkerProblemRunner.main(GraphWalkerProblemRunner.java:43)
+Caused by: org.graphwalker.core.machine.MachineException: No path generator is defined
+at org.graphwalker.core.machine.SimpleMachine.hasNextStep(SimpleMachine.java:273)
+at org.graphwalker.core.machine.SimpleMachine.switchContext(SimpleMachine.java:182)
+at org.graphwalker.core.machine.SimpleMachine.chooseSharedContext(SimpleMachine.java:204)
+at org.graphwalker.core.machine.SimpleMachine.takeNextStep(SimpleMachine.java:193)
+at org.graphwalker.core.machine.SimpleMachine.walk(SimpleMachine.java:143)
+... 2 more
+```
+
+Description with previous problem:
+> A minimal working/problematic example to demonstrate an issue with GraphWalker involving programmatically setting a
+> path generator and a stop condition in conjunction with a multi-model .json GraphWalker file.
 
 ## How to execute
 For example in IntelliJ IDEA.
@@ -10,6 +36,8 @@ For example in IntelliJ IDEA.
 4. Run src/main/java/com/example/runners/GraphWalkerProblemRunner.java.
 
 ## Information
+_The described goal has been achieved._
+
 The goal is to:
 1. Model the System Under Test (SUT) as a single GraphWalker .json file containing multiple models.
 2. Run tests on different parts of the SUT by applying different path generators and stop conditions on models. There
